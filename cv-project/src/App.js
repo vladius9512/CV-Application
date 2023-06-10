@@ -1,0 +1,17 @@
+import "./App.css";
+import React, { Component } from "react";
+import BasicInformation from "./Components/BasicInformation";
+import Education from "./Components/Education";
+
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+                <BasicInformation />
+                <Education />
+            </div>
+        );
+    }
+}
+
+export default App;
