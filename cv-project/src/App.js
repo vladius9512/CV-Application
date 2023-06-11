@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { Component } from "react";
+import uniqid from "uniqid";
 import BasicInformation from "./Components/BasicInformation";
 import Education from "./Components/Education";
 import Overview from "./Components/Overview";
@@ -15,6 +16,13 @@ class App extends Component {
                 email: "",
                 summary: "",
             },
+            educationElement: {
+                title: "",
+                name: "",
+                period: "",
+                id: uniqid(),
+            },
+            educationArray: [],
         };
     }
     handleBasicInformationNameChange = (e) => {
@@ -59,7 +67,7 @@ class App extends Component {
         });
     };
     render() {
-        const { basicInformation } = this.state;
+        const { basicInformation, educationArray } = this.state;
         return (
             <div className="App">
                 <BasicInformation
@@ -77,7 +85,10 @@ class App extends Component {
                     }
                 />
                 <Education />
-                <Overview basicInformation={basicInformation} />
+                <Overview
+                    basicInformation={basicInformation}
+                    educationArray={educationArray}
+                />
             </div>
         );
     }

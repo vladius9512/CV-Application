@@ -1,7 +1,7 @@
 import React from "react";
 
 const Overview = (props) => {
-    const { basicInformation } = props;
+    const { basicInformation, educationArray } = props;
 
     return (
         <section>
@@ -16,6 +16,23 @@ const Overview = (props) => {
             </div>
             <div className="CV-Summary">
                 <p>Summary:{basicInformation.summary}</p>
+            </div>
+            <div className="education-container">
+                {educationArray.map((elem) => {
+                    return (
+                        <div className="schoolElement" key={elem.id}>
+                            <div className="CV-educationTitle">
+                                Title: {elem.title}
+                            </div>
+                            <div className="CV-educationSchool">
+                                Institute Name: {elem.name}
+                            </div>
+                            <div className="CV-educationPeriod">
+                                Period: {elem.period}
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
         </section>
     );
