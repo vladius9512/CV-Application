@@ -4,6 +4,7 @@ import uniqid from "uniqid";
 import BasicInformation from "./Components/BasicInformation";
 import Education from "./Components/Education";
 import Overview from "./Components/Overview";
+import Experience from "./Components/Experience";
 
 class App extends Component {
     constructor() {
@@ -23,6 +24,14 @@ class App extends Component {
                 id: uniqid(),
             },
             educationArray: [],
+            experienceElement: {
+                position: "",
+                companyName: "",
+                period: "",
+                achievments: "",
+                id: uniqid(),
+            },
+            experienceArray: [],
         };
     }
     handleBasicInformationNameChange = (e) => {
@@ -76,6 +85,7 @@ class App extends Component {
                     }
                 />
                 <Education />
+                <Experience />
                 <Overview
                     basicInformation={basicInformation}
                     educationArray={educationArray}
