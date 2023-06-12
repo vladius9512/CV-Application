@@ -26,45 +26,36 @@ class App extends Component {
         };
     }
     handleBasicInformationNameChange = (e) => {
-        this.setState({
+        this.setState((prevState) => ({
             basicInformation: {
+                ...prevState.basicInformation,
                 name: e.target.value,
-                phoneNumber: this.state.basicInformation.phoneNumber,
-                email: this.state.basicInformation.email,
-                summary: this.state.basicInformation.summary,
             },
-        });
+        }));
     };
     handleBasicInformationPhoneChange = (e) => {
-        console.log(this.state);
-        this.setState({
+        this.setState((prevState) => ({
             basicInformation: {
-                name: this.state.basicInformation.name,
+                ...prevState.basicInformation,
                 phoneNumber: e.target.value,
-                email: this.state.basicInformation.email,
-                summary: this.state.basicInformation.summary,
             },
-        });
+        }));
     };
     handleBasicInformationEmailChange = (e) => {
-        this.setState({
+        this.setState((prevState) => ({
             basicInformation: {
-                name: this.state.basicInformation.name,
-                phoneNumber: this.state.basicInformation.phoneNumber,
+                ...prevState.basicInformation,
                 email: e.target.value,
-                summary: this.state.basicInformation.summary,
             },
-        });
+        }));
     };
     handleBasicInformationSummaryChange = (e) => {
-        this.setState({
+        this.setState((prevState) => ({
             basicInformation: {
-                name: this.state.basicInformation.name,
-                phoneNumber: this.state.basicInformation.phoneNumber,
-                email: this.state.basicInformation.email,
+                ...prevState.basicInformation,
                 summary: e.target.value,
             },
-        });
+        }));
     };
     render() {
         const { basicInformation, educationArray } = this.state;
