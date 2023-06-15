@@ -4,6 +4,13 @@ import { useState } from "react";
 const Experience = (props) => {
     const [isShown, setIsShown] = useState(false);
 
+    const {
+        handleExperiencePositionChange,
+        handleExperienceCompanyChange,
+        handleExperienceAchievmentsChange,
+        onSubmitExperience,
+    } = props;
+
     const handleClick = (e) => {
         setIsShown((current) => !current);
     };
@@ -20,14 +27,31 @@ const Experience = (props) => {
             {isShown && (
                 <section className="experience">
                     <label>Position Title</label>
-                    <input type="text" id="experiencePosition" />
+                    <input
+                        type="text"
+                        id="experiencePosition"
+                        onChange={handleExperiencePositionChange}
+                    />
                     <label>Company Name</label>
-                    <input type="text" id="experienceCompanyName" />
+                    <input
+                        type="text"
+                        id="experienceCompanyName"
+                        onChange={handleExperienceCompanyChange}
+                    />
                     <label>Period</label>
                     <input type="text" id="experiencePeriodInput" />
                     <label>Achievments/activities/responsibilities</label>
-                    <textarea type="text" id="achievmentsInput"></textarea>
-                    <button type="submit" className="addExperience">
+                    <textarea
+                        type="text"
+                        id="achievmentsInput"
+                        onChange={handleExperienceAchievmentsChange}
+                    ></textarea>
+                    <button
+                        type="submit"
+                        className="addExperience"
+                        onClick={handleClick}
+                        onClickCapture={onSubmitExperience}
+                    >
                         Submit experience
                     </button>
                 </section>

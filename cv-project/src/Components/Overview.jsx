@@ -1,10 +1,10 @@
 import React from "react";
 
 const Overview = (props) => {
-    const { basicInformation, educationArray } = props;
+    const { basicInformation, educationArray, experienceArray } = props;
 
     return (
-        <section>
+        <section className="overview">
             <div className="CV-Name">
                 <p>Name:{basicInformation.name}</p>
             </div>
@@ -29,6 +29,26 @@ const Overview = (props) => {
                             </div>
                             <div className="CV-educationPeriod">
                                 Period: {elem.period}
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+            <div className="experience-container">
+                {experienceArray.map((elem) => {
+                    return (
+                        <div className="experienceElement" key={elem.id}>
+                            <div className="CV-experiencePosition">
+                                Position: {elem.position}
+                            </div>
+                            <div className="CV-experienceCompany">
+                                Company Name: {elem.companyName}
+                            </div>
+                            <div className="CV-experiencePeriod">
+                                Period: {elem.period}
+                            </div>
+                            <div className="CV-experienceAchievment">
+                                Achievments: {elem.achievments}
                             </div>
                         </div>
                     );

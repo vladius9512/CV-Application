@@ -89,6 +89,21 @@ class App extends Component {
                 this.state.educationElement
             ),
             educationElement: {
+                position: "",
+                companyName: "",
+                period: "",
+                achievments: "",
+                id: uniqid(),
+            },
+        });
+    };
+    onSubmitExperience = (e) => {
+        e.preventDefault();
+        this.setState({
+            experienceArray: this.state.experienceArray.concat(
+                this.state.experienceElement
+            ),
+            experienceElement: {
                 title: "",
                 name: "",
                 period: "",
@@ -96,8 +111,32 @@ class App extends Component {
             },
         });
     };
+    handleExperiencePositionChange = (e) => {
+        this.setState((prevState) => ({
+            experienceElement: {
+                ...prevState.experienceElement,
+                position: e.target.value,
+            },
+        }));
+    };
+    handleExperienceCompanyChange = (e) => {
+        this.setState((prevState) => ({
+            experienceElement: {
+                ...prevState.experienceElement,
+                companyName: e.target.value,
+            },
+        }));
+    };
+    handleExperienceAchievmentsChange = (e) => {
+        this.setState((prevState) => ({
+            experienceElement: {
+                ...prevState.experienceElement,
+                achievments: e.target.value,
+            },
+        }));
+    };
     render() {
-        const { basicInformation, educationArray, educationElement } =
+        const { basicInformation, educationArray, experienceArray } =
             this.state;
         return (
             <div className="App">
@@ -119,13 +158,23 @@ class App extends Component {
                     handleEducationTitleChange={this.handleEducationTitleChange}
                     handleEducationNameChange={this.handleEducationNameChange}
                     onSubmitEducation={this.onSubmitEducation}
-                    educationArray={educationArray}
-                    educationElement={educationElement}
                 />
-                <Experience />
+                <Experience
+                    handleExperiencePositionChange={
+                        this.handleExperiencePositionChange
+                    }
+                    handleExperienceCompanyChange={
+                        this.handleExperienceCompanyChange
+                    }
+                    handleExperienceAchievmentsChange={
+                        this.handleExperienceAchievmentsChange
+                    }
+                    onSubmitExperience={this.onSubmitExperience}
+                />
                 <Overview
                     basicInformation={basicInformation}
                     educationArray={educationArray}
+                    experienceArray={experienceArray}
                 />
             </div>
         );
