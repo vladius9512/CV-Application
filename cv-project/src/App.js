@@ -66,8 +66,39 @@ class App extends Component {
             },
         }));
     };
+    handleEducationTitleChange = (e) => {
+        this.setState((prevState) => ({
+            educationElement: {
+                ...prevState.educationElement,
+                title: e.target.value,
+            },
+        }));
+    };
+    handleEducationNameChange = (e) => {
+        this.setState((prevState) => ({
+            educationElement: {
+                ...prevState.educationElement,
+                name: e.target.value,
+            },
+        }));
+    };
+    onSubmitEducation = (e) => {
+        e.preventDefault();
+        this.setState({
+            educationArray: this.state.educationArray.concat(
+                this.state.educationElement
+            ),
+            educationElement: {
+                title: "",
+                name: "",
+                period: "",
+                id: uniqid(),
+            },
+        });
+    };
     render() {
-        const { basicInformation, educationArray } = this.state;
+        const { basicInformation, educationArray, educationElement } =
+            this.state;
         return (
             <div className="App">
                 <BasicInformation
@@ -84,7 +115,13 @@ class App extends Component {
                         this.handleBasicInformationSummaryChange
                     }
                 />
-                <Education />
+                <Education
+                    handleEducationTitleChange={this.handleEducationTitleChange}
+                    handleEducationNameChange={this.handleEducationNameChange}
+                    onSubmitEducation={this.onSubmitEducation}
+                    educationArray={educationArray}
+                    educationElement={educationElement}
+                />
                 <Experience />
                 <Overview
                     basicInformation={basicInformation}
