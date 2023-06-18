@@ -20,7 +20,7 @@ class App extends Component {
             educationElement: {
                 title: "",
                 name: "",
-                period: "",
+                period: { from: new Date(), to: new Date() },
                 id: uniqid(),
             },
             educationArray: [],
@@ -74,6 +74,28 @@ class App extends Component {
             },
         }));
     };
+    handleEducationDateFromChange = (e) => {
+        this.setState((prevState) => ({
+            educationElement: {
+                ...prevState.educationElement,
+                period: {
+                    ...prevState.educationElement.period,
+                    from: e,
+                },
+            },
+        }));
+    };
+    handleEducationDateToChange = (e) => {
+        this.setState((prevState) => ({
+            educationElement: {
+                ...prevState.educationElement,
+                period: {
+                    ...prevState.educationElement.period,
+                    to: e,
+                },
+            },
+        }));
+    };
     handleEducationNameChange = (e) => {
         this.setState((prevState) => ({
             educationElement: {
@@ -91,7 +113,7 @@ class App extends Component {
             educationElement: {
                 position: "",
                 companyName: "",
-                period: "",
+                period: { from: new Date(), to: new Date() },
                 achievments: "",
                 id: uniqid(),
             },
@@ -152,8 +174,12 @@ class App extends Component {
         });
     };
     render() {
-        const { basicInformation, educationArray, experienceArray } =
-            this.state;
+        const {
+            basicInformation,
+            educationArray,
+            experienceArray,
+            educationElement,
+        } = this.state;
         return (
             <div className="App">
                 <BasicInformation
@@ -173,6 +199,13 @@ class App extends Component {
                 <Education
                     handleEducationTitleChange={this.handleEducationTitleChange}
                     handleEducationNameChange={this.handleEducationNameChange}
+                    handleEducationDateFromChange={
+                        this.handleEducationDateFromChange
+                    }
+                    handleEducationDateToChange={
+                        this.handleEducationDateToChange
+                    }
+                    educationElement={educationElement}
                     onSubmitEducation={this.onSubmitEducation}
                 />
                 <Experience

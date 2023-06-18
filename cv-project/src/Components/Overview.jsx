@@ -35,7 +35,12 @@ const Overview = (props) => {
                                 Institute Name: {elem.name}
                             </div>
                             <div className="CV-educationPeriod">
-                                Period: {elem.period}
+                                From: {elem.period.from.getMonth() + 1}
+                                {"/"}
+                                {elem.period.from.getFullYear()} Until:
+                                {elem.period.to.getMonth() + 1}
+                                {"/"}
+                                {elem.period.to.getFullYear()}
                             </div>
                             <button
                                 type="button"
