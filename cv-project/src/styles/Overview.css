@@ -1,0 +1,15 @@
+.schoolElement button {
+    display: none;
+}
+
+.schoolElement:hover button {
+    display: block;
+}
+
+.experienceElement button {
+    display: none;
+}
+
+.experienceElement:hover button {
+    display: block;
+}

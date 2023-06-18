@@ -1,7 +1,14 @@
 import React from "react";
+import "../styles/Overview.css";
 
 const Overview = (props) => {
-    const { basicInformation, educationArray, experienceArray } = props;
+    const {
+        basicInformation,
+        educationArray,
+        experienceArray,
+        handleRemoveEducation,
+        handleRemoveExperience,
+    } = props;
 
     return (
         <section className="overview">
@@ -30,6 +37,16 @@ const Overview = (props) => {
                             <div className="CV-educationPeriod">
                                 Period: {elem.period}
                             </div>
+                            <button
+                                type="button"
+                                className="removeEducationElem"
+                                onClick={() => handleRemoveEducation(elem.id)}
+                            >
+                                Remove
+                            </button>
+                            <button type="button" className="editEducationElem">
+                                Edit Element
+                            </button>
                         </div>
                     );
                 })}
@@ -50,6 +67,19 @@ const Overview = (props) => {
                             <div className="CV-experienceAchievment">
                                 Achievments: {elem.achievments}
                             </div>
+                            <button
+                                type="button"
+                                className="removeExperienceElem"
+                                onClick={() => handleRemoveExperience(elem.id)}
+                            >
+                                Remove
+                            </button>
+                            <button
+                                type="button"
+                                className="editExperienceElem"
+                            >
+                                Edit Element
+                            </button>
                         </div>
                     );
                 })}

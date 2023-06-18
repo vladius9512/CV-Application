@@ -135,6 +135,22 @@ class App extends Component {
             },
         }));
     };
+    handleRemoveEducation = (id) => {
+        const newList = this.state.educationArray.filter(
+            (item) => item.id !== id
+        );
+        this.setState({
+            educationArray: newList,
+        });
+    };
+    handleRemoveExperience = (id) => {
+        const newList = this.state.experienceArray.filter(
+            (item) => item.id !== id
+        );
+        this.setState({
+            experienceArray: newList,
+        });
+    };
     render() {
         const { basicInformation, educationArray, experienceArray } =
             this.state;
@@ -175,6 +191,8 @@ class App extends Component {
                     basicInformation={basicInformation}
                     educationArray={educationArray}
                     experienceArray={experienceArray}
+                    handleRemoveEducation={this.handleRemoveEducation}
+                    handleRemoveExperience={this.handleRemoveExperience}
                 />
             </div>
         );
