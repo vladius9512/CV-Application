@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/BasicInformation.css";
 
 const BasicInformation = (props) => {
     const {

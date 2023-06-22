@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/App.css";
 import React, { Component } from "react";
 import uniqid from "uniqid";
 import BasicInformation from "./Components/BasicInformation";
@@ -205,6 +205,20 @@ class App extends Component {
         } = this.state;
         return (
             <div className="App">
+                <div className="p-svg-container">
+                    <p>Add your CV informations down here </p>
+                    <svg
+                        className="downArrow"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 448 512"
+                    >
+                        <path
+                            fill="#2ec27e"
+                            d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+                        />
+                    </svg>
+                </div>
                 <BasicInformation
                     handleBasicInformationNameChange={
                         this.handleBasicInformationNameChange
@@ -219,6 +233,7 @@ class App extends Component {
                         this.handleBasicInformationSummaryChange
                     }
                 />
+                <p>Education</p>
                 <Education
                     handleEducationTitleChange={this.handleEducationTitleChange}
                     handleEducationNameChange={this.handleEducationNameChange}
@@ -231,6 +246,7 @@ class App extends Component {
                     educationElement={educationElement}
                     onSubmitEducation={this.onSubmitEducation}
                 />
+                <p>Experience</p>
                 <Experience
                     handleExperiencePositionChange={
                         this.handleExperiencePositionChange
@@ -250,6 +266,19 @@ class App extends Component {
                     experienceElement={experienceElement}
                     onSubmitExperience={this.onSubmitExperience}
                 />
+                <div className="p-svg-container">
+                    <p>This is a preview of your CV</p>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 384 512"
+                    >
+                        <path
+                            fill="#2ec27e"
+                            d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128z"
+                        />
+                    </svg>
+                </div>
                 <Overview
                     basicInformation={basicInformation}
                     educationArray={educationArray}

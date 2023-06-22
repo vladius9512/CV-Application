@@ -1,0 +1,22 @@
+.education {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-top: 0.3rem;
+}
+.addEducation {
+    padding: 1rem;
+    width: 70%;
+    border: none;
+    border-radius: 2rem;
+    align-self: center;
+    margin-top: 0.7rem;
+    background-color: #2ec27e;
+    font-size: 16px;
+    font-weight: 500;
+}
+.showEducation {
+    background-color: unset;
+    border: none;
+    width: 30px;
+}
