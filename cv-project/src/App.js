@@ -27,7 +27,7 @@ class App extends Component {
             experienceElement: {
                 position: "",
                 companyName: "",
-                period: "",
+                period: { from: new Date(), to: new Date() },
                 achievments: "",
                 id: uniqid(),
             },
@@ -111,10 +111,9 @@ class App extends Component {
                 this.state.educationElement
             ),
             educationElement: {
-                position: "",
-                companyName: "",
+                title: "",
+                name: "",
                 period: { from: new Date(), to: new Date() },
-                achievments: "",
                 id: uniqid(),
             },
         });
@@ -126,12 +125,35 @@ class App extends Component {
                 this.state.experienceElement
             ),
             experienceElement: {
-                title: "",
-                name: "",
-                period: "",
+                position: "",
+                companyName: "",
+                period: { from: new Date(), to: new Date() },
+                achievments: "",
                 id: uniqid(),
             },
         });
+    };
+    handleExperienceDateFromChange = (e) => {
+        this.setState((prevState) => ({
+            experienceElement: {
+                ...prevState.experienceElement,
+                period: {
+                    ...prevState.experienceElement.period,
+                    from: e,
+                },
+            },
+        }));
+    };
+    handleExperienceDateToChange = (e) => {
+        this.setState((prevState) => ({
+            experienceElement: {
+                ...prevState.experienceElement,
+                period: {
+                    ...prevState.experienceElement.period,
+                    to: e,
+                },
+            },
+        }));
     };
     handleExperiencePositionChange = (e) => {
         this.setState((prevState) => ({
@@ -179,6 +201,7 @@ class App extends Component {
             educationArray,
             experienceArray,
             educationElement,
+            experienceElement,
         } = this.state;
         return (
             <div className="App">
@@ -218,6 +241,13 @@ class App extends Component {
                     handleExperienceAchievmentsChange={
                         this.handleExperienceAchievmentsChange
                     }
+                    handleExperienceDateFromChange={
+                        this.handleExperienceDateFromChange
+                    }
+                    handleExperienceDateToChange={
+                        this.handleExperienceDateToChange
+                    }
+                    experienceElement={experienceElement}
                     onSubmitExperience={this.onSubmitExperience}
                 />
                 <Overview

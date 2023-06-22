@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Experience = (props) => {
     const [isShown, setIsShown] = useState(false);
@@ -8,6 +10,9 @@ const Experience = (props) => {
         handleExperiencePositionChange,
         handleExperienceCompanyChange,
         handleExperienceAchievmentsChange,
+        handleExperienceDateFromChange,
+        handleExperienceDateToChange,
+        experienceElement,
         onSubmitExperience,
     } = props;
 
@@ -46,6 +51,20 @@ const Experience = (props) => {
                         id="achievmentsInput"
                         onChange={handleExperienceAchievmentsChange}
                     ></textarea>
+                    <label>From:</label>
+                    <DatePicker
+                        showIcon
+                        selected={experienceElement.period.from}
+                        onChange={(date) =>
+                            handleExperienceDateFromChange(date)
+                        }
+                    />
+                    <label>To:</label>
+                    <DatePicker
+                        showIcon
+                        selected={experienceElement.period.to}
+                        onChange={(date) => handleExperienceDateToChange(date)}
+                    />
                     <button
                         type="submit"
                         className="addExperience"

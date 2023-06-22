@@ -67,7 +67,12 @@ const Overview = (props) => {
                                 Company Name: {elem.companyName}
                             </div>
                             <div className="CV-experiencePeriod">
-                                Period: {elem.period}
+                                From: {elem.period.from.getMonth() + 1}
+                                {"/"}
+                                {elem.period.from.getFullYear()} Until:
+                                {elem.period.to.getMonth() + 1}
+                                {"/"}
+                                {elem.period.to.getFullYear()}
                             </div>
                             <div className="CV-experienceAchievment">
                                 Achievments: {elem.achievments}
