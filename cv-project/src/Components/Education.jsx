@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "../styles/Education.css";
+import "../styles/App.css";
 
 const Education = (props) => {
     const [isShown, setIsShown] = useState(false);
@@ -17,6 +17,10 @@ const Education = (props) => {
 
     const handleClick = () => {
         setIsShown((current) => !current);
+    };
+    const onSubmit = (e) => {
+        onSubmitEducation(e);
+        handleClick();
     };
     return (
         <div className="education-wrapper">
@@ -44,38 +48,43 @@ const Education = (props) => {
             </button>
             {isShown && (
                 <section className="education">
-                    <label>Title</label>
-                    <input
-                        type="text"
-                        id="educationTitle"
-                        onChange={handleEducationTitleChange}
-                    />
-                    <label>School Name</label>
-                    <input
-                        type="text"
-                        id="educationNameInput"
-                        onChange={handleEducationNameChange}
-                    />
-                    <label>From</label>
-                    <DatePicker
-                        showIcon
-                        selected={educationElement.period.from}
-                        onChange={(date) => handleEducationDateFromChange(date)}
-                    />
-                    <label>Until</label>
-                    <DatePicker
-                        showIcon
-                        selected={educationElement.period.to}
-                        onChange={(date) => handleEducationDateToChange(date)}
-                    />
-                    <button
-                        type="submit"
-                        className="addEducation"
-                        onClick={handleClick}
-                        onClickCapture={onSubmitEducation}
-                    >
-                        Submit education
-                    </button>
+                    <form onSubmit={onSubmit}>
+                        <label>Title</label>
+                        <input
+                            type="text"
+                            id="educationTitle"
+                            onChange={handleEducationTitleChange}
+                            required
+                        />
+                        <label>School Name</label>
+                        <input
+                            type="text"
+                            id="educationNameInput"
+                            onChange={handleEducationNameChange}
+                            required
+                        />
+                        <label>From</label>
+                        <DatePicker
+                            showIcon
+                            selected={educationElement.period.from}
+                            onChange={(date) =>
+                                handleEducationDateFromChange(date)
+                            }
+                        />
+                        <label>Until</label>
+                        <DatePicker
+                            showIcon
+                            selected={educationElement.period.to}
+                            onChange={(date) =>
+                                handleEducationDateToChange(date)
+                            }
+                        />
+                        <input
+                            type="submit"
+                            className="addEducation"
+                            value="Submit education"
+                        />
+                    </form>
                 </section>
             )}
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Overview.css";
+import "../styles/App.css";
 
 const Overview = (props) => {
     const {

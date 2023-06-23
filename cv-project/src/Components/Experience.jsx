@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "../styles/Experience.css";
+import "../styles/App.css";
 
 const Experience = (props) => {
     const [isShown, setIsShown] = useState(false);
@@ -19,6 +19,11 @@ const Experience = (props) => {
 
     const handleClick = (e) => {
         setIsShown((current) => !current);
+    };
+
+    const onSubmit = (e) => {
+        onSubmitExperience(e);
+        handleClick();
     };
 
     return (
@@ -47,46 +52,49 @@ const Experience = (props) => {
             </button>
             {isShown && (
                 <section className="experience">
-                    <label>Position Title</label>
-                    <input
-                        type="text"
-                        id="experiencePosition"
-                        onChange={handleExperiencePositionChange}
-                    />
-                    <label>Company Name</label>
-                    <input
-                        type="text"
-                        id="experienceCompanyName"
-                        onChange={handleExperienceCompanyChange}
-                    />
-                    <label>Achievments/activities/responsibilities</label>
-                    <textarea
-                        type="text"
-                        id="achievmentsInput"
-                        onChange={handleExperienceAchievmentsChange}
-                    ></textarea>
-                    <label>From:</label>
-                    <DatePicker
-                        showIcon
-                        selected={experienceElement.period.from}
-                        onChange={(date) =>
-                            handleExperienceDateFromChange(date)
-                        }
-                    />
-                    <label>To:</label>
-                    <DatePicker
-                        showIcon
-                        selected={experienceElement.period.to}
-                        onChange={(date) => handleExperienceDateToChange(date)}
-                    />
-                    <button
-                        type="submit"
-                        className="addExperience"
-                        onClick={handleClick}
-                        onClickCapture={onSubmitExperience}
-                    >
-                        Submit experience
-                    </button>
+                    <form onSubmit={onSubmit}>
+                        <label>Position Title</label>
+                        <input
+                            type="text"
+                            id="experiencePosition"
+                            onChange={handleExperiencePositionChange}
+                            required
+                        />
+                        <label>Company Name</label>
+                        <input
+                            type="text"
+                            id="experienceCompanyName"
+                            onChange={handleExperienceCompanyChange}
+                            required
+                        />
+                        <label>Achievments/activities/responsibilities</label>
+                        <textarea
+                            type="text"
+                            id="achievmentsInput"
+                            onChange={handleExperienceAchievmentsChange}
+                        ></textarea>
+                        <label>From:</label>
+                        <DatePicker
+                            showIcon
+                            selected={experienceElement.period.from}
+                            onChange={(date) =>
+                                handleExperienceDateFromChange(date)
+                            }
+                        />
+                        <label>To:</label>
+                        <DatePicker
+                            showIcon
+                            selected={experienceElement.period.to}
+                            onChange={(date) =>
+                                handleExperienceDateToChange(date)
+                            }
+                        />
+                        <input
+                            type="submit"
+                            className="addExperience"
+                            value="Submit Experience"
+                        />
+                    </form>
                 </section>
             )}
         </div>

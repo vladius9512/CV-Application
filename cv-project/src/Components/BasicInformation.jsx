@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/BasicInformation.css";
+import "../styles/App.css";
 
 const BasicInformation = (props) => {
     const {

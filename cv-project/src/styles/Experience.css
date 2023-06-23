@@ -1,9 +1,0 @@
-.experience {
-    display: flex;
-    flex-direction: column;
-}
-.showExperience {
-    width: 30px;
-    background-color: unset;
-    border-style: none;
-}
