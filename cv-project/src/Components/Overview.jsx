@@ -9,6 +9,7 @@ const Overview = (props) => {
         handleRemoveEducation,
         handleRemoveExperience,
         handleEdit,
+        handleEditExperience,
     } = props;
 
     return (
@@ -88,6 +89,7 @@ const Overview = (props) => {
                             <button
                                 type="button"
                                 className="editExperienceElem"
+                                onClick={() => handleEditExperience(elem.id)}
                             >
                                 Edit Element
                             </button>

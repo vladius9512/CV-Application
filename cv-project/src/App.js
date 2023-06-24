@@ -6,6 +6,7 @@ import Education from "./Components/Education";
 import Overview from "./Components/Overview";
 import Experience from "./Components/Experience";
 import EditModal from "./Components/EditModal";
+import EditModalExperience from "./Components/EditModalExperience";
 
 class App extends Component {
     constructor() {
@@ -34,6 +35,7 @@ class App extends Component {
             },
             experienceArray: [],
             editModal: { visible: false, educationElementId: null },
+            editExperienceModal: { visible: false, experienceElementId: null },
         };
     }
     handleBasicInformationNameChange = (e) => {
@@ -208,9 +210,16 @@ class App extends Component {
             },
         });
     };
+    openEditExperienceModal = (id) => {
+        this.setState({
+            editExperienceModal: {
+                visible: true,
+                experienceElementId: id,
+            },
+        });
+    };
     handleEditSubmit = (inputsValues, elemId) => {
         const newEducationArr = this.state.educationArray.map((item) => {
-            console.log(item);
             if (item.id === elemId) {
                 item.title = inputsValues.titleInput;
                 item.name = inputsValues.schoolInput;
@@ -224,6 +233,26 @@ class App extends Component {
             educationArray: newEducationArr,
             editModal: { visible: false, educationElementId: null },
         }));
+    };
+    handleEditExperienceSubmit = (inputsValues, elemId) => {
+        const newExperienceArr = this.state.experienceArray.map((item) => {
+            if (item.id === elemId) {
+                item.position = inputsValues.positionInput;
+                item.companyName = inputsValues.companyNameInput;
+                item.period.from = inputsValues.from;
+                item.period.to = inputsValues.to;
+                item.achievments = inputsValues.achievmentsInput;
+            }
+            return item;
+        });
+        this.setState((prevState) => ({
+            ...prevState,
+            experienceArray: newExperienceArr,
+            editExperienceModal: { visible: false, educationElementId: null },
+        }));
+    };
+    findExperienceElem = (id) => {
+        return this.state.experienceArray.find((elem) => elem.id === id);
     };
     render() {
         const {
@@ -315,6 +344,7 @@ class App extends Component {
                     experienceArray={experienceArray}
                     handleRemoveEducation={this.handleRemoveEducation}
                     handleEdit={this.openEditModal}
+                    handleEditExperience={this.openEditExperienceModal}
                     handleRemoveExperience={this.handleRemoveExperience}
                 />
                 {this.state.editModal.visible && (
@@ -325,6 +355,19 @@ class App extends Component {
                         }
                         educationElem={this.findEducationElem(
                             this.state.editModal.educationElementId
+                        )}
+                    />
+                )}
+                {this.state.editExperienceModal.visible && (
+                    <EditModalExperience
+                        handleEditExperienceSubmit={
+                            this.handleEditExperienceSubmit
+                        }
+                        experienceElementId={
+                            this.state.editExperienceModal.experienceElementId
+                        }
+                        experienceElem={this.findExperienceElem(
+                            this.state.editExperienceModal.experienceElementId
                         )}
                     />
                 )}
