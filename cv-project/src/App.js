@@ -5,6 +5,7 @@ import BasicInformation from "./Components/BasicInformation";
 import Education from "./Components/Education";
 import Overview from "./Components/Overview";
 import Experience from "./Components/Experience";
+import EditModal from "./Components/EditModal";
 
 class App extends Component {
     constructor() {
@@ -32,6 +33,7 @@ class App extends Component {
                 id: uniqid(),
             },
             experienceArray: [],
+            editModal: { visible: false, educationElementId: null },
         };
     }
     handleBasicInformationNameChange = (e) => {
@@ -195,6 +197,34 @@ class App extends Component {
             experienceArray: newList,
         });
     };
+    findEducationElem = (id) => {
+        return this.state.educationArray.find((element) => element.id === id);
+    };
+    openEditModal = (id) => {
+        this.setState({
+            editModal: {
+                visible: true,
+                educationElementId: id,
+            },
+        });
+    };
+    handleEditSubmit = (inputsValues, elemId) => {
+        const newEducationArr = this.state.educationArray.map((item) => {
+            console.log(item);
+            if (item.id === elemId) {
+                item.title = inputsValues.titleInput;
+                item.name = inputsValues.schoolInput;
+                item.period.from = inputsValues.from;
+                item.period.to = inputsValues.to;
+            }
+            return item;
+        });
+        this.setState((prevState) => ({
+            ...prevState,
+            educationArray: newEducationArr,
+            editModal: { visible: false, educationElementId: null },
+        }));
+    };
     render() {
         const {
             basicInformation,
@@ -284,8 +314,20 @@ class App extends Component {
                     educationArray={educationArray}
                     experienceArray={experienceArray}
                     handleRemoveEducation={this.handleRemoveEducation}
+                    handleEdit={this.openEditModal}
                     handleRemoveExperience={this.handleRemoveExperience}
                 />
+                {this.state.editModal.visible && (
+                    <EditModal
+                        handleEditSubmit={this.handleEditSubmit}
+                        educationElementId={
+                            this.state.editModal.educationElementId
+                        }
+                        educationElem={this.findEducationElem(
+                            this.state.editModal.educationElementId
+                        )}
+                    />
+                )}
             </div>
         );
     }
