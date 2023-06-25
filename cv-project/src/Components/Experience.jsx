@@ -38,7 +38,10 @@ const Experience = (props) => {
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 448 512"
                     >
-                        <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" />
+                        <path
+                            fill="#AD380A"
+                            d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"
+                        />
                     </svg>
                 )}
                 {!isShown && (
@@ -46,7 +49,10 @@ const Experience = (props) => {
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 448 512"
                     >
-                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                        <path
+                            fill="#2ec27e"
+                            d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+                        />
                     </svg>
                 )}
             </button>
@@ -59,6 +65,8 @@ const Experience = (props) => {
                             id="experiencePosition"
                             onChange={handleExperiencePositionChange}
                             required
+                            placeholder="Customer support, CEO, etc"
+                            className="experienceInput"
                         />
                         <label>Company Name</label>
                         <input
@@ -66,12 +74,15 @@ const Experience = (props) => {
                             id="experienceCompanyName"
                             onChange={handleExperienceCompanyChange}
                             required
+                            placeholder="The name of the company..."
+                            className="experienceInput"
                         />
-                        <label>Achievments/activities/responsibilities</label>
+                        <label>Achievments</label>
                         <textarea
                             type="text"
                             id="achievmentsInput"
                             onChange={handleExperienceAchievmentsChange}
+                            placeholder="Top seller in the first quarter..."
                         ></textarea>
                         <label>From:</label>
                         <DatePicker

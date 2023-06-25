@@ -2,6 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Pathway Extreme", sans-serif;
+    background: linear-gradient(#48464d, #262229);
+    color: #cccccb;
 }
 p {
     margin: 0;
@@ -30,14 +32,59 @@ p {
     flex-direction: column;
     gap: 0.5rem;
     margin: 1rem 0;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    color: #000;
 }
 
-.education {
+.basicInfoInput {
+    border: none;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    padding: 0.5rem;
+}
+
+.basicInfoInput:focus {
+    outline: none;
+    border-bottom: 2px solid #2ec27e;
+}
+
+#summaryInput {
+    border: none;
+    border-bottom: 1px solid #000;
+    resize: none;
+    padding: 0.5rem;
+    padding-bottom: 2rem;
+}
+
+#summaryInput:focus {
+    outline: none;
+    border-bottom: 2px solid #2ec27e;
+}
+
+.education form {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0.5rem;
     margin-top: 0.3rem;
+    border-radius: 1rem;
+    background-color: #fff;
+    padding: 2rem;
+    color: #000;
 }
+
+.educationInput {
+    border: none;
+    padding: 0.5rem;
+    border-bottom: 1px solid #000;
+    width: 218px;
+}
+
+.educationInput:focus {
+    outline: none;
+    border-bottom: 2px solid #2ec27e;
+}
+
 .addEducation {
     padding: 1rem;
     width: 70%;
@@ -55,10 +102,54 @@ p {
     width: 30px;
 }
 
-.experience {
+.experience-wrapper {
+    margin: 1rem 0;
+}
+
+.experience form {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.3rem;
+    border-radius: 1rem;
+    background-color: #fff;
+    padding: 2rem;
+    color: #000;
 }
+
+.addExperience {
+    padding: 1rem;
+    width: 70%;
+    border: none;
+    border-radius: 2rem;
+    align-self: center;
+    margin-top: 0.7rem;
+    background-color: #2ec27e;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.experienceInput {
+    border: none;
+    padding: 0.5rem;
+    border-bottom: 1px solid #000;
+    width: 218px;
+}
+
+.experienceInput:focus {
+    outline: none;
+    border-bottom: 2px solid #2ec27e;
+}
+
+#achievmentsInput {
+    border: none;
+    resize: none;
+    border-bottom: 1px solid #000;
+    padding: 0.5rem;
+    padding-bottom: 2rem;
+    width: 218px;
+}
+
 .showExperience {
     width: 30px;
     background-color: unset;

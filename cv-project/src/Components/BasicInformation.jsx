@@ -14,25 +14,32 @@ const BasicInformation = (props) => {
             <input
                 type="text"
                 id="nameInput"
+                className="basicInfoInput"
                 onChange={handleBasicInformationNameChange}
+                placeholder="Enter your name"
             />
             <label>Phone Number</label>
             <input
                 type="tel"
                 id="phoneInput"
+                className="basicInfoInput"
                 onChange={handleBasicInformationPhoneChange}
+                placeholder="Enter your phone number"
             />
             <label>Email</label>
             <input
                 type="email"
                 id="emailInput"
+                className="basicInfoInput"
                 onChange={handleBasicInformationEmailChange}
+                placeholder="Enter a valid email address"
             />
             <label>Summary</label>
             <textarea
                 type="text"
                 id="summaryInput"
                 onChange={handleBasicInformationSummaryChange}
+                placeholder="Tell us a little about yourself..."
             />
         </section>
     );
