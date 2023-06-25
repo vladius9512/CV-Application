@@ -18,13 +18,14 @@ const Overview = (props) => {
                 <p>I am {basicInformation.name}</p>
             </div>
             <div className="CV-Summary">
-                <p>Me in a couple of phrases:{basicInformation.summary}</p>
+                <p>Me in a couple of phrases: {basicInformation.summary}</p>
             </div>
             <div className="education-container">
                 <p>Education</p>
                 {educationArray.map((elem) => {
                     return (
                         <div className="schoolElement" key={elem.id}>
+                            <div className="line"></div>
                             <div className="CV-educationTitle">
                                 Title: {elem.title}
                             </div>
@@ -62,6 +63,7 @@ const Overview = (props) => {
                 {experienceArray.map((elem) => {
                     return (
                         <div className="experienceElement" key={elem.id}>
+                            <div className="line"></div>
                             <div className="CV-experiencePosition">
                                 Position: {elem.position}
                             </div>

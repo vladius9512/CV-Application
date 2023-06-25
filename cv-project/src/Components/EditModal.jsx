@@ -54,6 +54,7 @@ class EditModal extends Component {
                         onChange={this.handleChangeTitle}
                         value={this.state.titleInput}
                         required
+                        className="educationInput"
                     />
                     <label>School Name:</label>
                     <input
@@ -62,6 +63,7 @@ class EditModal extends Component {
                         onChange={this.handleChangeSchool}
                         value={this.state.schoolInput}
                         required
+                        className="educationInput"
                     />
                     <label>From:</label>
                     <DatePicker

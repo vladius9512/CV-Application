@@ -61,6 +61,7 @@ class EditModalExperience extends Component {
                         onChange={this.handleChangePosition}
                         value={this.state.positionInput}
                         required
+                        className="educationInput"
                     />
                     <label>Company Name:</label>
                     <input
@@ -69,6 +70,7 @@ class EditModalExperience extends Component {
                         onChange={this.handleChangeCompany}
                         value={this.state.companyNameInput}
                         required
+                        className="educationInput"
                     />
                     <label>From:</label>
                     <DatePicker
