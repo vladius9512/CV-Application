@@ -320,3 +320,33 @@ p {
     border: none;
     border-radius: 1rem;
 }
+
+@media screen and (min-width: 1280px) {
+    .App {
+        flex-grow: 1;
+        display: grid;
+        grid-template-rows: 90px 640px 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+        max-width: 1080px;
+    }
+    .basic-information {
+        grid-row: 2/3;
+        justify-content: space-around;
+    }
+    .education-container {
+        grid-row: 2/3;
+        grid-column: 2/3;
+    }
+    .experience-container {
+        grid-row: 2/3;
+        grid-column: 3/3;
+    }
+    .overview-container {
+        grid-row: 3;
+        grid-column: span 3;
+    }
+    .experience-container {
+        margin: 0;
+    }
+}

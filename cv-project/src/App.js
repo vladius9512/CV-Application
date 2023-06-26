@@ -292,61 +292,71 @@ class App extends Component {
                         this.handleBasicInformationSummaryChange
                     }
                 />
-                <p>Education</p>
-                <Education
-                    handleEducationTitleChange={this.handleEducationTitleChange}
-                    handleEducationNameChange={this.handleEducationNameChange}
-                    handleEducationDateFromChange={
-                        this.handleEducationDateFromChange
-                    }
-                    handleEducationDateToChange={
-                        this.handleEducationDateToChange
-                    }
-                    educationElement={educationElement}
-                    onSubmitEducation={this.onSubmitEducation}
-                />
-                <p>Experience</p>
-                <Experience
-                    handleExperiencePositionChange={
-                        this.handleExperiencePositionChange
-                    }
-                    handleExperienceCompanyChange={
-                        this.handleExperienceCompanyChange
-                    }
-                    handleExperienceAchievmentsChange={
-                        this.handleExperienceAchievmentsChange
-                    }
-                    handleExperienceDateFromChange={
-                        this.handleExperienceDateFromChange
-                    }
-                    handleExperienceDateToChange={
-                        this.handleExperienceDateToChange
-                    }
-                    experienceElement={experienceElement}
-                    onSubmitExperience={this.onSubmitExperience}
-                />
-                <div className="p-svg-container">
-                    <p>This is a preview of your CV</p>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="1em"
-                        viewBox="0 0 384 512"
-                    >
-                        <path
-                            fill="#2ec27e"
-                            d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128z"
-                        />
-                    </svg>
+                <div className="education-container">
+                    <p>Education</p>
+                    <Education
+                        handleEducationTitleChange={
+                            this.handleEducationTitleChange
+                        }
+                        handleEducationNameChange={
+                            this.handleEducationNameChange
+                        }
+                        handleEducationDateFromChange={
+                            this.handleEducationDateFromChange
+                        }
+                        handleEducationDateToChange={
+                            this.handleEducationDateToChange
+                        }
+                        educationElement={educationElement}
+                        onSubmitEducation={this.onSubmitEducation}
+                    />
                 </div>
-                <Overview
-                    basicInformation={basicInformation}
-                    educationArray={educationArray}
-                    experienceArray={experienceArray}
-                    handleRemoveEducation={this.handleRemoveEducation}
-                    handleEdit={this.openEditModal}
-                    handleEditExperience={this.openEditExperienceModal}
-                    handleRemoveExperience={this.handleRemoveExperience}
-                />
+                <div className="experience-container">
+                    <p>Experience</p>
+                    <Experience
+                        handleExperiencePositionChange={
+                            this.handleExperiencePositionChange
+                        }
+                        handleExperienceCompanyChange={
+                            this.handleExperienceCompanyChange
+                        }
+                        handleExperienceAchievmentsChange={
+                            this.handleExperienceAchievmentsChange
+                        }
+                        handleExperienceDateFromChange={
+                            this.handleExperienceDateFromChange
+                        }
+                        handleExperienceDateToChange={
+                            this.handleExperienceDateToChange
+                        }
+                        experienceElement={experienceElement}
+                        onSubmitExperience={this.onSubmitExperience}
+                    />
+                </div>
+                <div className="overview-container">
+                    <div className="p-svg-container">
+                        <p>This is a preview of your CV</p>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="1em"
+                            viewBox="0 0 384 512"
+                        >
+                            <path
+                                fill="#2ec27e"
+                                d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128z"
+                            />
+                        </svg>
+                    </div>
+                    <Overview
+                        basicInformation={basicInformation}
+                        educationArray={educationArray}
+                        experienceArray={experienceArray}
+                        handleRemoveEducation={this.handleRemoveEducation}
+                        handleEdit={this.openEditModal}
+                        handleEditExperience={this.openEditExperienceModal}
+                        handleRemoveExperience={this.handleRemoveExperience}
+                    />
+                </div>
                 {this.state.editModal.visible && (
                     <EditModal
                         handleEditSubmit={this.handleEditSubmit}
