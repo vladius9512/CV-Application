@@ -14,11 +14,14 @@ const Overview = (props) => {
 
     return (
         <section className="overview">
-            <div className="CV-Name">
-                <p>I am {basicInformation.name}</p>
-            </div>
-            <div className="CV-Summary">
-                <p>Me in a couple of phrases: {basicInformation.summary}</p>
+            <div className="overviewHeader"></div>
+            <div className="summary-name-container">
+                <div className="CV-Name">
+                    <p>I am {basicInformation.name}</p>
+                </div>
+                <div className="CV-Summary">
+                    <p>Me in a couple of phrases: {basicInformation.summary}</p>
+                </div>
             </div>
             <div className="education-container">
                 <p>Education</p>
@@ -33,9 +36,9 @@ const Overview = (props) => {
                                 Institute Name: {elem.name}
                             </div>
                             <div className="CV-educationPeriod">
-                                From: {elem.period.from.getMonth() + 1}
+                                {elem.period.from.getMonth() + 1}
                                 {"/"}
-                                {elem.period.from.getFullYear()} Until:
+                                {elem.period.from.getFullYear()} -{" "}
                                 {elem.period.to.getMonth() + 1}
                                 {"/"}
                                 {elem.period.to.getFullYear()}
@@ -71,9 +74,9 @@ const Overview = (props) => {
                                 Company Name: {elem.companyName}
                             </div>
                             <div className="CV-experiencePeriod">
-                                From: {elem.period.from.getMonth() + 1}
+                                {elem.period.from.getMonth() + 1}
                                 {"/"}
-                                {elem.period.from.getFullYear()} Until:
+                                {elem.period.from.getFullYear()} -{" "}
                                 {elem.period.to.getMonth() + 1}
                                 {"/"}
                                 {elem.period.to.getFullYear()}

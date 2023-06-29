@@ -337,6 +337,8 @@ p {
     .education-container {
         grid-row: 2/3;
         grid-column: 2/3;
+        max-width: 350px;
+        margin-left: 1rem;
     }
     .experience-container {
         grid-row: 2/3;
@@ -346,7 +348,94 @@ p {
         grid-row: 3;
         grid-column: span 3;
     }
+    .overviewHeader {
+        margin-top: 1rem;
+        height: 20px;
+        width: 100%;
+        background-color: #2ec27e;
+        grid-column: span 3;
+    }
+    .overview {
+        display: grid;
+        grid-template-columns: 350px 1fr;
+    }
     .experience-container {
-        margin: 0;
+        max-width: 350px;
+        margin: 0 0 0 1rem;
+    }
+    .removeEducationElem {
+        display: none;
+    }
+    .editEducationElem {
+        display: none;
+    }
+    .schoolElement:hover .removeEducationElem {
+        display: block;
+    }
+    .schoolElement:hover .editEducationElem {
+        display: block;
+    }
+    .removeExperienceElem {
+        display: none;
+    }
+    .editExperienceElem {
+        display: none;
+    }
+    .removeExperienceElem:hover {
+        background-color: #be3a06;
+        cursor: pointer;
+    }
+    .editExperienceElem:hover {
+        background-color: #08eb81;
+        cursor: pointer;
+    }
+    .experienceElement:hover .removeExperienceElem {
+        display: block;
+    }
+    .experienceElement:hover .editExperienceElem {
+        display: block;
+    }
+    .removeEducationElem:hover {
+        background-color: #be3a06;
+        cursor: pointer;
+    }
+    .editEducationElem:hover {
+        background-color: #08eb81;
+        cursor: pointer;
+    }
+    .experienceElement {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+    }
+    .line {
+        grid-column: span 2;
+    }
+    .CV-experiencePeriod {
+        grid-column: 1;
+        grid-row: 2/5;
+    }
+    .schoolElement {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+    }
+    .CV-educationPeriod {
+        grid-column: 1;
+        grid-row: 2/4;
+    }
+    .summary-name-container {
+        max-width: 350px;
+        overflow-x: scroll;
+    }
+    .editModal form button:hover {
+        background-color: #08eb81;
+        cursor: pointer;
+    }
+    .addEducation:hover {
+        background-color: #08eb81;
+        cursor: pointer;
+    }
+    .addExperience:hover {
+        background-color: #08eb81;
+        cursor: pointer;
     }
 }
